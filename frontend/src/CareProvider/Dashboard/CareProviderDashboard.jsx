@@ -22,7 +22,7 @@ import UserDashboardSideBar from '../../Common/UserDashboardSideBar';
 import CareProviderFirstPage from './CareProviderFirstPage';
 import CompleteProfile from '../../Common/CompleteProfile';
 import UpdateUserPassword from '../../Common/UpdateUserPassword';
-import LogOutModal from '../../Administrator/Dashboard.jsx/LogOutModal';
+import LogOutModal from '../../Common/LogOutModal'
 import MemberAppointmentDetails from '../MemberAppointmentDetails/MemberAppointmentDetails';
 import UpcomingAppointments from './UpcomingAppointments';
 import PaymentHistory from './PaymentHistory';

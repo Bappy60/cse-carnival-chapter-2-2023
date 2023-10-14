@@ -7,7 +7,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
-import { country_list } from '../../Administrator/Payment/countrynames';
+import { country_list } from '../../Members/Profile/countrynames'
 import languages from '../../assets/js/languages';
 
 const ITEM_HEIGHT = 48;

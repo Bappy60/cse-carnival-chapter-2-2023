@@ -6,15 +6,14 @@ import { baseURL } from "../../../config";
 import Cookies from "js-cookie";
 import { Navigate } from "react-router-dom";
 import monthNames from "../../assets/js/monthNames";
-import CardInput from "../../Administrator/Payment/CardInput";
-import CheckOutForm from "../../Administrator/Payment/CheckOutForm";
+
 export default function ShowConfirmBooking({bookingsuccesful,setBookingSuccessful,careprovider,event,payload,notes,handleSubmitPay}){
     const [profile,setProfile]=useState({});
     const [navigate,setNavigate]=useState(false);
     const dates=["Sunday, Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
     console.log(new Date(event.resource.start_time))
     const confirm=()=>{
-        axios.put(`${baseURL}/members/updateevent`,{
+        axios.put(`${baseURL}/normaluser/updateevent`,{
             event:payload.event.uri,
              events:event,
              id:profile._id,
@@ -26,14 +25,14 @@ export default function ShowConfirmBooking({bookingsuccesful,setBookingSuccessfu
             console.log(res)}}).catch(err=>console.log(err));
     }
     useEffect(()=>{
-        axios.get(`${baseURL}/members/profile?id=${Cookies.get("memberId")}`,).then(result=>{
+        axios.get(`${baseURL}/normaluser/profile?id=${Cookies.get("memberId")}`,).then(result=>{
             console.log(result.data);
             setProfile(result.data);
         }).catch(err=>console.log(err));
      },[])
-    const pay=()=>{
-        setShowcardInput(true);
-    }
+    // const pay=()=>{
+    //     setShowcardInput(true);
+    // }
     return (
         <Box sx={{flex:2/3}}>
             {navigate&&<Navigate to="/member/"></Navigate>}
