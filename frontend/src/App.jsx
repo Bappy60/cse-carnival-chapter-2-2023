@@ -6,6 +6,7 @@ import MemberRegister from './Members/Registration/MemberRegistyer'
 import MemberLogin from './Members/Registration/MemberLogin'
 import Questions from './Members/Questions'
 import { Route, Routes } from 'react-router-dom'
+import CompleteandEditProfile from './Members/Profile/CompleteandEditProfile'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function App() {
      <Routes>
   <Route path="/member/register" element={<MemberRegister />}></Route>
   <Route path="/member/login" element={<MemberLogin />}></Route>
+  <Route path="/member/onboarding" element={<CompleteandEditProfile />}></Route>
 </Routes>
     </>
   )
