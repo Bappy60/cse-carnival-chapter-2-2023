@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import OtpInput from 'react-otp-input';
 import axios from 'axios';
 import { baseURL } from '../../config';

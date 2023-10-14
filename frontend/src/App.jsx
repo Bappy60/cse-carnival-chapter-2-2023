@@ -23,10 +23,8 @@ import Questions from './Members/Questions'
 
 function App() {
   return (
- <div>
-  <Routes>
-
-
+    <>
+     <Routes>
   <Route path="/member/register" element={<MemberRegister />}></Route>
   <Route path="/member/login" element={<MemberLogin />}></Route>
   <Route path="/member/onboarding" element={<CompleteandEditProfile />}></Route>
@@ -58,7 +56,7 @@ function App() {
 
 
 </Routes>
- </div>
+ </>
   )
 }
 
