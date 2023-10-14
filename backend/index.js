@@ -17,8 +17,10 @@ require("./db/conn.js");
 app.use("/images",express.static("uploads"))
 
 const members=require("./routes/normal_user");
+const careprovider = require("./routes/careprovider.js")
 
 app.use("/normaluser",members)
+app.use("/careprovider",careprovider)
 
 app.listen("5000", () => {
     console.log("Server is running!");
