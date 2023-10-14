@@ -17,7 +17,8 @@ function App() {
     <>
      <Routes>
      <Route path="/member" element={<MemberDashboard />}></Route>
-
+     <Route path="/allblogs" element={<AllBlogs />}></Route>
+  <Route path="/viewblog/:id" element={<ViewBlog />}></Route>
 <Route path="/" element={<Redirection/>}></Route>
   <Route path="/member/register" element={<MemberRegister />}></Route>
   <Route path="/member/login" element={<MemberLogin />}></Route>
