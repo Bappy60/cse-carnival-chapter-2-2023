@@ -21,7 +21,7 @@ const handleClose = () => {
     const [profile,setProfile]=useState({});
     useEffect(()=>{
       if(type==="member"){
-        axios.get(`${baseURL}/members/profile?id=${Cookies.get("memberId")}`,).then(result=>{
+        axios.get(`${baseURL}/normaluser/profile?id=${Cookies.get("memberId")}`,).then(result=>{
           console.log(result.data);
           setProfile(result.data);
       }).catch(err=>console.log(err));
@@ -72,7 +72,7 @@ const handleClose = () => {
     setError(false);
     if(type==="member")
     {
-      axios.post(`${baseURL}/members/updatepassword`,{
+      axios.post(`${baseURL}/normaluser/updatepassword`,{
         old:passwords.old,
         newP:passwords.newP,
         memberId:Cookies.get("memberId")

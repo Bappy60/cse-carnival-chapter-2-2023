@@ -181,10 +181,7 @@ return(
           
         </div></MenuItem>
 
-        <MenuItem onClick={e=>setPage(6)}  sx={{marginBottom:"10px",fontWeight:"bold"}}><div style={{margin:"0px",width:"100%"}}>
-            <p style={{margin:"0px"}}>Payment History</p>
-          
-        </div></MenuItem>
+       
         <MenuItem onClick={e=>setOpen2(true)}  sx={{marginBottom:"10px",fontWeight:"bold"}}><div style={{margin:"0px",width:"100%",}}><hr style={{width:"100%",backgroundColor:"rgba(206, 206, 206, 1)"}}></hr><p style={{color:"red",margin:"0px",marginTop:"20px"}}>Log Out</p></div></MenuItem>
 
       </Menu>

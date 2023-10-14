@@ -21,6 +21,32 @@ const transporter = nodemailer.createTransport({
    
 });
 
+router.post("/updatepassword",async(req,res)=>{
+  const { old, newP } = req.body;
+  const memberId = req.body.memberId;
+  const m = await member.findById(memberId);
+  console.log("hi");
+  const isValidPassword=await bcrypt.compare(old,m.password);
+  if (!isValidPassword) {
+    res.status(400);
+     res.json({ message: "Bad credential" });
+  }
+  let saltRounds = 10;
+  m.password = await bcrypt.hash(newP, saltRounds);
+  await m.save();
+   res.json({ message: "success" });
+});
+router.put("/updateprofile",upload.single("images"),async(req,res)=>{
+  let images="";
+  const updatedProfile={  dob:req.body.dob,
+      country:req.body.country,languages:req.body.languages.split(","),};
+ if(req.file){
+  images=req.file.filename;
+  updatedProfile.images=images;   
+}
+console.log(updatedProfile)
+  member.updateOne({email:req.body.email},updatedProfile).then(foundedAdmin=>res.send(foundedAdmin)).catch(err=>res.send("No care provider found"))
+});
 
 router.post("/createuser",async(req,res)=>{
     let saltRounds = 10;

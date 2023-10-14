@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import "../Administrator/Dashboard.jsx/chooseimages.css";
 import "../Members/Profile/chooseimages.css"
 import { baseURL } from '../../config';
 import Cookies from 'js-cookie';

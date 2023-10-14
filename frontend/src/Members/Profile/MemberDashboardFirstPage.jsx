@@ -27,7 +27,7 @@ lineHeight: "normal"}}>Free Counselling Hours</p>
 <p>Valid Until {profile.valid?profile.valid:"5/9/2024"}</p>
          </Box>
          <Box sx={{}}>
-    {events.length===0&&<Box sx={{borderRadius: "20px",border:" 1px solid var(--grey, #777)",background: "var(--primary-color, #62C227)",padding:"10px 30px"}}>
+    <Box sx={{borderRadius: "20px",border:" 1px solid var(--grey, #777)",background: "var(--primary-color, #62C227)",padding:"10px 30px"}}>
        <p style={{
 fontSize: "18px",
 fontStyle:" normal",
@@ -35,7 +35,7 @@ fontWeight: 400,
 lineHeight: "normal",color:"white"}}>You deserve to be happy<br></br>Find the Right Care Provider For you</p>
 
 <NavLink to="/member/questions"><button style={{backgroundColor:"white",color:"#62C227",padding:"15px 55px",marginTop:"30px",width:"100%"}}>Book a Session</button></NavLink>
-         </Box>}
+         </Box>
          </Box>
         </Stack>
 
