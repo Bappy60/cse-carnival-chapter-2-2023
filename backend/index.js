@@ -15,6 +15,10 @@ app.use(express.json());
 dotenv.config({path:"./config.env"});
 require("./db/conn.js");
 
+const members=require("./routes/normal_user");
+
+app.use("/normaluser",members)
+
 app.listen("5000", () => {
     console.log("Server is running!");
   });

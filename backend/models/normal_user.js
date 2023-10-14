@@ -26,4 +26,4 @@ const normal_user = new Schema({
 
 const normal_users = mongoose.model('normal_users', normal_user);
 
-module.exports = normal_user;
+module.exports = normal_users;
