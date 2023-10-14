@@ -1,17 +1,16 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import "../Administrator/Dashboard.jsx/chooseimages.css";
+import "../Members/Profile/chooseimages.css"
 import { baseURL } from '../../config';
 import Cookies from 'js-cookie';
 import randomImage from  "../assets/images/randomimage.png"
 import Navbar from './Navbar';
 import Success from './Success';
 import { Navigate } from 'react-router-dom';
-import MultipleSelectCheckmarks from '../Members/Profile/ChooseMultiSelect';
 import { MenuItem, Select } from '@mui/material';
 import languages from '../assets/js/languages';
 import MultipleSelectChip from '../CareProvider/Dashboard/MultipleSelect';
-import { country_list } from '../Administrator/Payment/countrynames';
+import { country_list } from '../Members/Profile/countrynames';
 function CompleteProfile({type,nav})
 {
   const [expError,setExpError]=useState(false);
@@ -79,6 +78,7 @@ function CompleteProfile({type,nav})
     setImages(event.target.files[0]);
     setFile(URL.createObjectURL(event.target.files[0]));
   }
+ 
 return(
     <div>
        {!nav&& <Navbar logout={true}/>}

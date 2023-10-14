@@ -29,14 +29,14 @@ const items=[
 ] ;
 const [pastcareproviders,setPastCareProviders]=useState([]);
 useEffect(()=>{
-    axios.get(`${baseURL}/members/getcareproviders?id=${Cookies.get("memberId")}`).then(res=>{
+    axios.get(`${baseURL}/normaluser/getcareproviders?id=${Cookies.get("memberId")}`).then(res=>{
         console.log(res);
         setPastCareProviders(res.data)
     }).catch(err=>console.log(err))
 },[])
 const [value,setValue]=useState("week");
 const unmatch=(careid)=>{
-    axios.put(`${baseURL}/members/unmatch`,{
+    axios.put(`${baseURL}/normaluser/unmatch`,{
       memberId:Cookies.get("memberId"),
       careId:careid
     }).then(res=>{console.log(res);

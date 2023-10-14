@@ -29,7 +29,7 @@ export default function AppointmentSchedule({eventDetails,careprovider,profile,t
       }).catch(err=>console.log(err))
     }
     const cancelEvent=(type)=>{
-        axios.post(`${baseURL}/members/usercancel`,{
+        axios.post(`${baseURL}/normaluser/usercancel`,{
             event:eventDetails.event,
             memberId:Cookies.get("memberId"),
             type
@@ -48,7 +48,7 @@ export default function AppointmentSchedule({eventDetails,careprovider,profile,t
           },
         onEventTypeViewed: () => console.log("onEventTypeViewed"),
         onEventScheduled: (e) => { 
-          axios.post(`${baseURL}/members/rescheduleevent`,{
+          axios.post(`${baseURL}/normaluser/rescheduleevent`,{
             event:e.data.payload.event.uri,
             invitee:e.data.payload.invitee.uri,
             email:profile.email,

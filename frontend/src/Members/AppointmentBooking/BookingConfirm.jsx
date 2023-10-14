@@ -9,8 +9,8 @@ import {CardContent} from '@mui/material';
 import {TextField} from '@mui/material'; 
 // stripe
 import {useStripe, useElements, CardElement,CardNumberElement} from '@stripe/react-stripe-js';
-import { country_list } from "../../Administrator/Payment/countrynames";
-import CardInput from "../../Administrator/Payment/CardInput";
+import { country_list } from "../Profile/countrynames";
+import CardInput from "../Profile/CardInput";
 export default function BookingConfirm({payload,careprovider,}){
     const [uuid,setUuid]=useState("");
     const [event2,setEvent]=useState();
@@ -29,7 +29,7 @@ export default function BookingConfirm({payload,careprovider,}){
         return;
       }
   
-      const res = await axios.post(`${baseURL}/members/pay`, {name: name,id:Cookies.get("memberId")});
+      const res = await axios.post(`${baseURL}/normaluser/pay`, {name: name,id:Cookies.get("memberId")});
   
       const clientSecret = res.data['client_secret'];
   
@@ -49,7 +49,7 @@ export default function BookingConfirm({payload,careprovider,}){
         // The payment has been processed!
         if (result.paymentIntent.status === 'succeeded') {
           console.log('Money is in the bank!');
-          axios.put(`${baseURL}/members/updateevent`,{
+          axios.put(`${baseURL}/normaluser/updateevent`,{
             event:payload.event.uri,
              events:event2,
              id:Cookies.get("memberId"),
@@ -72,13 +72,13 @@ export default function BookingConfirm({payload,careprovider,}){
   
     const [profile,setProfile]=useState({});
     useEffect(()=>{
-        axios.get(`${baseURL}/members/profile?id=${Cookies.get("memberId")}`,).then(result=>{
+        axios.get(`${baseURL}/normaluser/profile?id=${Cookies.get("memberId")}`,).then(result=>{
             console.log(result.data);
             setProfile(result.data);
         }).catch(err=>console.log(err));
      },[])
     useEffect(()=>{
-        axios.get(`${baseURL}/members/getevent?uuid=${payload.event.uri}`).then(res=>{
+        axios.get(`${baseURL}/normaluser/getevent?uuid=${payload.event.uri}`).then(res=>{
             console.log(res);
             setUuid(payload.event.uri);
             setEvent(res.data);

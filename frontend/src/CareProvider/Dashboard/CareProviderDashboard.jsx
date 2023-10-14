@@ -16,33 +16,22 @@ import monthNames from '../../assets/js/monthNames';
 import { baseURL } from "../../../config.js";
 import randomImage from  "../../assets/images/randomimage.png";
  
-import { Email } from '@mui/icons-material';
+import { Cookie, Email } from '@mui/icons-material';
 
 import UserDashboardSideBar from '../../Common/UserDashboardSideBar';
+import CareProviderFirstPage from './CareProviderFirstPage';
+import CompleteProfile from '../../Common/CompleteProfile';
 import UpdateUserPassword from '../../Common/UpdateUserPassword';
-import CompleteandEditProfile from './CompleteandEditProfile';
-import MemberDashboardFirstPage from './MemberDashboardFirstPage';
-import LogOutModal from '../../Common/LogOutModal';
-import AppointmentDetails from '../AppointmentBooking/AppointmentDetails';
-import UpcomingAppointments from '../../CareProvider/Dashboard/UpcomingAppointments';
+import LogOutModal from '../../Common/LogOutModal'
+import MemberAppointmentDetails from '../MemberAppointmentDetails/MemberAppointmentDetails';
+import UpcomingAppointments from './UpcomingAppointments';
+import PaymentHistory from './PaymentHistory';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 const height=  window.innerHeight
-function MemberDashboard()
+function CareProviderDashboard()
 {
+    const [event,setEvent]=useState({});
     const [open2,setOpen2]=useState(false);
-    const [events,setEvents]=useState([]);
-    const [careProvider,setCareProvider]=useState({});
-    const [eventDetails,setEventDetails]=useState({});
-    const [pastevents,setPastEvents]=useState([]);
-     const [show,setShow]=useState(true);
-    useEffect(()=>{
-             axios.get(`${baseURL}/normaluser/userevents?id=${Cookies.get("memberId")}`).then(res=>{
-        console.log(res);
-        setPastEvents(res.data.pastAppoints.reverse());
-        setShow(true);
-        setEvents(res.data.upcomingAppoints.reverse());
-     }).catch(err=>console.log(err));
-    },[])
     const handleOpen=()=>{
         setOpen2(true);
     }
@@ -50,14 +39,19 @@ function MemberDashboard()
         setOpen2(false);
     }
  const [profile,setProfile]=useState({});
+ const [allEvents,setAllEvents]=useState([]);
+ const [showEvent,setShowEvent]=useState(false);
+ const [pastEvents,setPastEvents]=useState([]);
  useEffect(()=>{
-   
-        axios.post(`${baseURL}/normaluser/cancelevent`,{
-                    uuid:Cookies.get("uuid"),
-                    id:Cookies.get("memberId")
-                  })
-    
-    axios.get(`${baseURL}/normaluser/profile?id=${Cookies.get("memberId")}`,).then(result=>{
+    axios.get(`${baseURL}/careprovider/allevents?id=${Cookies.get("careId")}`).then(res=>{
+        console.log(res);
+        setAllEvents(res.data.upcomingAppoints);
+        setPastEvents(res.data.pastAppoints);
+        setShowEvent(true);
+    }).catch(err=>console.log(err))
+ },[])
+ useEffect(()=>{
+    axios.get(`${baseURL}/careprovider/profile?id=${Cookies.get("careId")}`,).then(result=>{
         console.log(result.data);
         setProfile(result.data);
         Cookies.set("subscription",result.data.subscription,{expires:365})
@@ -88,7 +82,14 @@ const enntries=[{
 {
     label:"Oldest",value:"oldest"
 }
-]
+];
+function age(birthdate) {
+    const today = new Date();
+    const age = today.getFullYear() - birthdate.getFullYear() - 
+               (today.getMonth() < birthdate.getMonth() || 
+               (today.getMonth() === birthdate.getMonth() && today.getDate() < birthdate.getDate()));
+    return age;
+  }
 const [newDate,setNewDate]=useState(0)
 const [anchorEl, setAnchorEl] = React.useState(null);
 const open = Boolean(anchorEl);
@@ -133,8 +134,9 @@ return(
           }}
           open
         >
+              {gotoPay&&<Navigate to="/admin/change/payment"></Navigate>}
 
-       <UserDashboardSideBar page={page}setPage={setPage} type="member"/>
+       <UserDashboardSideBar page={page}setPage={setPage} type="care"/>
         </Drawer>
             </div>
             </Box>
@@ -149,8 +151,7 @@ return(
         onClick={handleClick}/>:<img src={randomImage} style={{width:"70px",height:"70px"}}id="basic-button"
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}/>}
+        aria-expanded={open ? 'true' : undefined} onClick={handleClick}/>}
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
@@ -165,9 +166,9 @@ return(
             <div style={{margin:"0px"}}>
         <div style={{display:"flex",justifyContent:"space-between",gap:"10px",width:"100%",alignItems:"center",margin:"0px"}}>
         <img src={profile.images?`${baseURL}/images/${profile.images}`:randomImage} style={{display:"block",width:"50px",height:"50px",borderRadius:"50%"}}/>
-                <div style={{margin:"0px"}}>
-                    <h4 style={{marginBottom:"0px"}}>{profile.firstName+" "+profile.lastName}</h4>
-                    <p style={{marginTop:"0px"}}>{profile.email}</p>
+                <div style={{marginTop:"-20px"}}>
+                    <h4 style={{marginBottom:"0px"}}>{profile.firstName+" "+profile.lastName}, {profile.degree}</h4>
+                    {/* <p style={{marginTop:"0px"}}>{profile.specializations}</p> */}
                 </div>
         
                 </div>
@@ -180,7 +181,7 @@ return(
             <p style={{margin:"0px"}}>Change Password</p>
           
         </div></MenuItem>
-
+        
         <MenuItem onClick={e=>setPage(6)}  sx={{marginBottom:"10px",fontWeight:"bold"}}><div style={{margin:"0px",width:"100%"}}>
             <p style={{margin:"0px"}}>Payment History</p>
           
@@ -189,13 +190,15 @@ return(
 
       </Menu>
         </div>
-    
-        {open2&&<LogOutModal open={open2}handleClose={handleClose2} type={"member"}/>}
-        {page===0&&show&&<MemberDashboardFirstPage profile={profile} events={events} setCareProvider={setCareProvider}setEventDetails={setEventDetails}setPage={setPage} pastAppoints={pastevents}/>}
-        {page===3&&<CompleteandEditProfile type={"member"} nav={true}/>}
-        {page===4&&<UpdateUserPassword type={"member"} nav={true}/>}
-        {page===5&&<AppointmentDetails profile={profile} events={events} careProvider={careProvider} eventDetails={eventDetails}/>}
-        {page===2&&<UpcomingAppointments profile={profile} upcomingAppointments={pastevents} careProvider={careProvider} pastAppoints={pastevents} eventDetails={eventDetails}type={"rate"}/>}
+        {open2&&<LogOutModal open={open2}handleClose={handleClose2} type={"cp"}/>}
+
+        {/* {open2&&<LogOutModal open={open2}handleClose={handleClose2}/>} */}
+        {page===0&&showEvent&&<CareProviderFirstPage profile={profile} pastAppoints={pastEvents}events={allEvents} setEvent={setEvent}setPage={setPage} age={age}/>}
+        {page===2&&showEvent&&<UpcomingAppointments profile={profile} upcomingAppointments={pastEvents}events={allEvents} setEvent={setEvent}setPage={setPage} age={age}/>}
+        {page===3&&<CompleteProfile type={"care"} nav={true} age={age}/>}
+        {page===4&&<UpdateUserPassword type={"care"} nav={true} age={age}/>}
+        {page===5&&<MemberAppointmentDetails type={"care"} nav={true} event={event} age={age}/>}
+        {profile.payments&&page===6&&  <PaymentHistory head={[{value:"Payment Date",label:"paymentDate"},{value:"Description",label:"memberName"},{value:"Date and Time",label:"start_time"},{value:"Amount",label:"price"},{value:"Status",label:"status"}]} rows={profile.payments} type={"admin"}/>}
 
     </div>
     </div>}
@@ -203,4 +206,4 @@ return(
 )
 }
 
-export default MemberDashboard;
+export default CareProviderDashboard;
