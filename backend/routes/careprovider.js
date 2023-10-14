@@ -1,16 +1,13 @@
 const express = require("express");
 var bodyParser = require('body-parser');
 const router=express();
-const admin=require("../models/administrators");
-const careprovider=require("../models/careprovider");
 var axios = require("axios").default;
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const superadmin=require("../models/superadmin");
 const upload=require("../uploadsystem/uplod");
 const careProvider = require("../models/careprovider");
-const event = require("../models/events");
-const member = require("../models/members");
+const member = require("../models/normal_user");
 const transporter = nodemailer.createTransport({
     service:"smtp",
     host: 'mail.talkwithsatori.com',
@@ -201,6 +198,25 @@ router.get("/getcareprovider",async(req,res)=>{
   const careProviders= await careProvider.findOne({_id:req.query.id});
   res.send(careProviders);
 })
+router.get('/search', async (req, res) => {
+  const { keyword } = req.query; // Assuming 'keyword' is the parameter for the search query
+
+  try {
+      const results = await careProvider.find({
+          $or: [
+              { firstName: { $regex: keyword, $options: 'i' } },
+              { lastName: { $regex: keyword, $options: 'i' } },
+              { specializations: { $regex: keyword, $options: 'i' } },
+              { bio: { $regex: keyword, $options: 'i' } },
+              { degree: { $regex: keyword, $options: 'i' } },
+          ],
+      });
+
+      res.json(results); // Send the search results as a JSON response
+  } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 
 router.get("/allevents",async(req,res)=>{
   const events=await event.find({careProviderId:req.query.id,confirmed:true,complete:false,noShow:false});
