@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 const dotenv=require("dotenv");
 const cors = require("cors");
 
+const jwtAuthentication = require('./middlewares/jwt.middleware');
+const errorHandling = require('./middlewares/errorHandling.middleware'); 
 
 const app = express();
 app.use(cors());
@@ -11,6 +13,9 @@ app.use(cors());
 var jsonParser = bodyParser.json();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(express.json());
+
+app.use(jwtAuthentication);
+app.use(errorHandling);
 
 dotenv.config({path:"./config.env"});
 require("./db/conn.js");
