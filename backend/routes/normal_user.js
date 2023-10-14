@@ -8,7 +8,6 @@ const member=require("../models/normal_user");
 const upload=require("../uploadsystem/uplod");
 
 
-
 const transporter = nodemailer.createTransport({
     service:"gmail",
     port: 465,
@@ -40,6 +39,7 @@ router.post("/login",async(req,res)=>{
     const getUser=await member.findOne({email:req.body.email});
     if(getUser){
     const passwordMatch=await bcrypt.compare(password,getUser.password);
+
     if(passwordMatch)
     res.send(getUser);
     else
