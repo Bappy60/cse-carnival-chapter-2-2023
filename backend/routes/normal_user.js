@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const { compareSync, hashSync } =require("bcrypt");
 const member=require("../models/normal_user");
+const upload=require("../uploadsystem/uplod");
 
 
 
@@ -48,6 +49,23 @@ router.post("/login",async(req,res)=>{
  res.status(400).send("Wrong");   
 
 })
+router.get("/profile",async(req,res)=>{
+  const result= await member.findOne({_id:req.query.id});
+  res.send(result);
+
+
+});
+router.put("/updateprofile",upload.single("images"),async(req,res)=>{
+  let images="";
+  const updatedProfile={  dob:req.body.dob,
+      country:req.body.country,languages:req.body.languages.split(","),};
+ if(req.file){
+  images=req.file.filename;
+  updatedProfile.images=images;   
+}
+console.log(updatedProfile)
+  member.updateOne({email:req.body.email},updatedProfile).then(foundedAdmin=>res.send(foundedAdmin)).catch(err=>res.send("No care provider found"))
+});
 
 router.post("/checkemail",async(req,res)=>{
     
