@@ -19,7 +19,6 @@ import randomImage from  "../../assets/images/randomimage.png";
 import { Email } from '@mui/icons-material';
 
 import UserDashboardSideBar from '../../Common/UserDashboardSideBar';
-import CompleteProfile from '../../Common/CompleteProfile';
 import UpdateUserPassword from '../../Common/UpdateUserPassword';
 import CompleteandEditProfile from './CompleteandEditProfile';
 import MemberDashboardFirstPage from './MemberDashboardFirstPage';
@@ -35,9 +34,9 @@ function MemberDashboard()
     const [careProvider,setCareProvider]=useState({});
     const [eventDetails,setEventDetails]=useState({});
     const [pastevents,setPastEvents]=useState([]);
-     const [show,setShow]=useState(false);
+     const [show,setShow]=useState(true);
     useEffect(()=>{
-             axios.get(`${baseURL}/members/userevents?id=${Cookies.get("memberId")}`).then(res=>{
+             axios.get(`${baseURL}/normaluser/userevents?id=${Cookies.get("memberId")}`).then(res=>{
         console.log(res);
         setPastEvents(res.data.pastAppoints.reverse());
         setShow(true);
@@ -53,12 +52,12 @@ function MemberDashboard()
  const [profile,setProfile]=useState({});
  useEffect(()=>{
    
-        axios.post(`${baseURL}/members/cancelevent`,{
+        axios.post(`${baseURL}/normaluser/cancelevent`,{
                     uuid:Cookies.get("uuid"),
                     id:Cookies.get("memberId")
                   })
     
-    axios.get(`${baseURL}/members/profile?id=${Cookies.get("memberId")}`,).then(result=>{
+    axios.get(`${baseURL}/normaluser/profile?id=${Cookies.get("memberId")}`,).then(result=>{
         console.log(result.data);
         setProfile(result.data);
         Cookies.set("subscription",result.data.subscription,{expires:365})

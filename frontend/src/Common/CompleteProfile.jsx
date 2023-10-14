@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import "../Administrator/Dashboard.jsx/chooseimages.css";
+import "../Members/Profile/chooseimages.css"
 import { baseURL } from '../../config';
 import Cookies from 'js-cookie';
 import randomImage from  "../assets/images/randomimage.png"
@@ -9,7 +10,7 @@ import Success from './Success';
 import { Navigate } from 'react-router-dom';
 import { MenuItem, Select } from '@mui/material';
 import MultipleSelectChip from '../CareProvider/Dashboard/MultipleSelect';
-import { country_list } from '../Administrator/Payment/countrynames';
+import { country_list } from '../Members/Profile/countrynames';
 function CompleteProfile({type,nav})
 {
   const [expError,setExpError]=useState(false);

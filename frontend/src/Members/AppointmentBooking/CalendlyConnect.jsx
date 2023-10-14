@@ -15,7 +15,7 @@ export default function Calendly({careprovider,payload,setPayload,bookingsuccesf
       },
     onEventTypeViewed: () => console.log("onEventTypeViewed"),
     onEventScheduled: (e) => { 
-      axios.post(`${baseURL}/members/scheduleevent`,{
+      axios.post(`${baseURL}/normaluser/scheduleevent`,{
         event:e.data.payload.event.uri,
         invitee:e.data.payload.invitee.uri,
         email:profile.email,
@@ -30,7 +30,7 @@ export default function Calendly({careprovider,payload,setPayload,bookingsuccesf
       }
   });
   useEffect(()=>{
-     axios.get(`${baseURL}/members/profile?id=${Cookies.get("memberId")}`,).then(result=>{
+     axios.get(`${baseURL}/normaluser/profile?id=${Cookies.get("memberId")}`,).then(result=>{
          console.log(result.data);
          setProfile(result.data);
      }).catch(err=>console.log(err));

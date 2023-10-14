@@ -6,8 +6,7 @@ import { Box, Stack } from "@mui/material";
 import Navbar from "../../Common/Navbar";
 import ShowCareProviderDetail from "./ShowCareProviderDetail";
 import Calendly from "./CalendlyConnect";
-import BookingConfirm from "./BookingConfirm";
-import StripePayment from "../../Administrator/Payment/StripePayment";
+import StripePayment from "../Profile/StripePayment";
 
 export default function BookAppointment(){
     const {id}=useParams();
@@ -24,7 +23,7 @@ export default function BookAppointment(){
     
     //       console.log('beforeunload event triggered');
     //       if(payload.event){
-    //     axios.post(`${baseURL}/members/cancelevent`,{
+    //     axios.post(`${baseURL}/normaluser/cancelevent`,{
     //         uuid:payload.event.uri
     //       })}
     //       return (event.returnValue =

@@ -22,13 +22,13 @@ const StyledRating = styled(Rating)({
     },
   });
     useEffect(()=>{
-        axios.get(`${baseURL}/members/getuserevent?id=${id}`).then(result=>{
+        axios.get(`${baseURL}/normaluser/getuserevent?id=${id}`).then(result=>{
             console.log(result)
             setEvent(result.data);
         }).catch(err=>console.log(err))
     },[]);
     const submit=()=>{
-        axios.post(`${baseURL}/members/createreview`,{
+        axios.post(`${baseURL}/normaluser/createreview`,{
             eventId:event._id,
             email:event.email,
             careProviderId:event.careProviderId,
