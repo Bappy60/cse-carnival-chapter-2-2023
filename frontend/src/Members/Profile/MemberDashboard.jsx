@@ -19,9 +19,13 @@ import randomImage from  "../../assets/images/randomimage.png";
 import { Email } from '@mui/icons-material';
 
 import UserDashboardSideBar from '../../Common/UserDashboardSideBar';
-
+import CompleteProfile from '../../Common/CompleteProfile';
+import UpdateUserPassword from '../../Common/UpdateUserPassword';
+import CompleteandEditProfile from './CompleteandEditProfile';
 import MemberDashboardFirstPage from './MemberDashboardFirstPage';
-
+import LogOutModal from '../../Common/LogOutModal';
+import AppointmentDetails from '../AppointmentBooking/AppointmentDetails';
+import UpcomingAppointments from '../../CareProvider/Dashboard/UpcomingAppointments';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 const height=  window.innerHeight
 function MemberDashboard()
@@ -187,8 +191,12 @@ return(
       </Menu>
         </div>
     
+        {open2&&<LogOutModal open={open2}handleClose={handleClose2} type={"member"}/>}
         {page===0&&show&&<MemberDashboardFirstPage profile={profile} events={events} setCareProvider={setCareProvider}setEventDetails={setEventDetails}setPage={setPage} pastAppoints={pastevents}/>}
-       
+        {page===3&&<CompleteandEditProfile type={"member"} nav={true}/>}
+        {page===4&&<UpdateUserPassword type={"member"} nav={true}/>}
+        {page===5&&<AppointmentDetails profile={profile} events={events} careProvider={careProvider} eventDetails={eventDetails}/>}
+        {page===2&&<UpcomingAppointments profile={profile} upcomingAppointments={pastevents} careProvider={careProvider} pastAppoints={pastevents} eventDetails={eventDetails}type={"rate"}/>}
 
     </div>
     </div>}
