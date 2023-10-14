@@ -14,6 +14,7 @@ app.use(express.json());
 
 dotenv.config({path:"./config.env"});
 require("./db/conn.js");
+app.use("/images",express.static("uploads"))
 
 const members=require("./routes/normal_user");
 
