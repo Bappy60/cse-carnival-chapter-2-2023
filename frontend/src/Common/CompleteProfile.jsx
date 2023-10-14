@@ -79,6 +79,7 @@ function CompleteProfile({type,nav})
     setImages(event.target.files[0]);
     setFile(URL.createObjectURL(event.target.files[0]));
   }
+ 
 return(
     <div>
        {!nav&& <Navbar logout={true}/>}
