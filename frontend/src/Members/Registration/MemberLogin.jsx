@@ -36,7 +36,7 @@ setError(true);
 
  const submit=(e)=>{
     e.preventDefault();
-    axios.post(`${baseURL}/members/login`,{
+    axios.post(`${baseURL}/normaluser/login`,{
         email,password
     }).then(result=>{
         console.log(result);

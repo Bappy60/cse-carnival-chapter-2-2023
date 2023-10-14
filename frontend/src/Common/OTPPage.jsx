@@ -37,7 +37,7 @@ if(type==="care")
 else if(type==="member")
 {
   console.log(data);
-  axios.post(`${baseURL}/members/createmember`,data, {
+  axios.post(`${baseURL}/normaluser/createuser`,data, {
     headers: {
         'Content-Type': 'application/json'
     }}).then(result=>{

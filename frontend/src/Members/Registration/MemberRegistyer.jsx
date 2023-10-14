@@ -71,7 +71,7 @@ setError(true);
  }
  const submit=(e)=>{
     e.preventDefault();
-     axios.post(`${baseURL}/members/checkemail`,{
+     axios.post(`${baseURL}/normaluser/checkemail`,{
        otp,email:data.email,companyId:data.companyId
      }).then(res=>{
         console.log(res);
