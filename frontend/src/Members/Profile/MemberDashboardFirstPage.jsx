@@ -2,6 +2,7 @@ import { Box, Stack } from '@mui/material';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import NextAppointment from '../../CareProvider/Dashboard/NextAppointment';
+import PastCareProviders from '../AppointmentBooking/PastCareProviders';
 
 function MemberDashboardFirstPage({profile,events,setCareProvider,setEventDetails,setPage,pastAppoints})
 {
@@ -42,7 +43,7 @@ lineHeight: "normal",color:"white"}}>You deserve to be happy<br></br>Find the Ri
         <h3 style={{fontSize:"35px",marginTop:"20px",textAlign:"start"}}>Next Appointment</h3>
         <NextAppointment appointment={events[0]} setCareProvider={setCareProvider}setEventDetails={setEventDetails}setPage={setPage}/>
     </Box>}
-   
+   {events.length===0&& <PastCareProviders/>}
     </div>
 )
 }
