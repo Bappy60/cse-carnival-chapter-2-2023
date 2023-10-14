@@ -5,7 +5,6 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { Stack, TextField } from '@mui/material';
 
-import axios from "axios";
 import Cookies from 'js-cookie';
 import { Navigate } from 'react-router-dom';
 const style = {

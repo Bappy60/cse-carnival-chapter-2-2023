@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import "../Administrator/Dashboard.jsx/chooseimages.css";
 import { baseURL } from '../../config';
 import Cookies from 'js-cookie';
@@ -7,9 +7,7 @@ import randomImage from  "../assets/images/randomimage.png"
 import Navbar from './Navbar';
 import Success from './Success';
 import { Navigate } from 'react-router-dom';
-import MultipleSelectCheckmarks from '../Members/Profile/ChooseMultiSelect';
 import { MenuItem, Select } from '@mui/material';
-import languages from '../assets/js/languages';
 import MultipleSelectChip from '../CareProvider/Dashboard/MultipleSelect';
 import { country_list } from '../Administrator/Payment/countrynames';
 function CompleteProfile({type,nav})
