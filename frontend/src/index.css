@@ -5,15 +5,17 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  background-color: white;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
+* {
+  margin: 0px;
+  padding: 0px;
+}
 a {
   font-weight: 500;
   color: #646cff;
@@ -25,8 +27,7 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+
   min-width: 320px;
   min-height: 100vh;
 }
@@ -54,7 +55,14 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+button:active{
+ 
+  background-color: "#4730cd";
+  box-shadow: "0 5px #666";
+  transform: "translateY(4px)";
+  color:"white"
 
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

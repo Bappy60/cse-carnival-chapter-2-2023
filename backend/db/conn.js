@@ -7,6 +7,5 @@ mongoose.connect(uri, {
 })
 .then(() => {
   console.log("MongoDB Connected…")
-  console.log("Connected")
 })
 .catch(err => console.log(err))
