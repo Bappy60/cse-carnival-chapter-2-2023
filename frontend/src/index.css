@@ -55,13 +55,11 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
-button:active{
- 
+button:active {
   background-color: "#4730cd";
   box-shadow: "0 5px #666";
   transform: "translateY(4px)";
-  color:"white"
-
+  color: "white";
 }
 @media (prefers-color-scheme: light) {
   :root {
