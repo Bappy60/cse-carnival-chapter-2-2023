@@ -110,7 +110,7 @@ router.post("/rescheduleevent",async(req,res)=>{
 var options = {
   method: 'GET',
   url: `https://api.calendly.com/scheduled_events/${uuid.split("").reverse().join("")}`,
-  headers: {'Content-Type': 'application/json',  Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjkzOTczMzMwLCJqdGkiOiI2YjY4NjkxMC01NTJlLTQ2YjItOWViMC00ZDQ1MThhMmRhNjEiLCJ1c2VyX3V1aWQiOiI2MmQ2YjEyOS1mNTNkLTQzNjctYjA3YS0wZDg4ZDA0ODI3NGQifQ.HmptWNKpuoh3Hp0cSCNr2RS-4UEFijrhw4Yy9BZU1d2YkM8b8P_CX8UgonklwT1q-d9RS0Aq-MP4FkKZfzRk_Q'
+  headers: {'Content-Type': 'application/json',  Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjk3MzI5MDgyLCJqdGkiOiIwN2FiM2MxNy1lMTIyLTQyZTktYmI0MC0yY2YwNTk0ZWMxNTQiLCJ1c2VyX3V1aWQiOiI3NDczMTRjMC0xNjA0LTRkNmUtYWExMS1kYjViNzVhNDIzOWMifQ.mqYVbS-Zz7K4SqPmifx_E0a0UWgVDj12rtbtW0YLbazIIj6foAfpb81yQBDa_uuYhjjDkH7PEdKK8lP4Uv5llw'
 }
 };
 
@@ -135,7 +135,7 @@ router.get("/getevent",async(req,res)=>{
 var options = {
   method: 'GET',
   url: `https://api.calendly.com/scheduled_events/${uuid.split("").reverse().join("")}`,
-  headers: {'Content-Type': 'application/json',  Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjkzOTczMzMwLCJqdGkiOiI2YjY4NjkxMC01NTJlLTQ2YjItOWViMC00ZDQ1MThhMmRhNjEiLCJ1c2VyX3V1aWQiOiI2MmQ2YjEyOS1mNTNkLTQzNjctYjA3YS0wZDg4ZDA0ODI3NGQifQ.HmptWNKpuoh3Hp0cSCNr2RS-4UEFijrhw4Yy9BZU1d2YkM8b8P_CX8UgonklwT1q-d9RS0Aq-MP4FkKZfzRk_Q'
+  headers: {'Content-Type': 'application/json',  Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjk3MzI5MDgyLCJqdGkiOiIwN2FiM2MxNy1lMTIyLTQyZTktYmI0MC0yY2YwNTk0ZWMxNTQiLCJ1c2VyX3V1aWQiOiI3NDczMTRjMC0xNjA0LTRkNmUtYWExMS1kYjViNzVhNDIzOWMifQ.mqYVbS-Zz7K4SqPmifx_E0a0UWgVDj12rtbtW0YLbazIIj6foAfpb81yQBDa_uuYhjjDkH7PEdKK8lP4Uv5llw'
 }
 };
 
@@ -183,7 +183,7 @@ events.forEach(element=>{
         url: `https://api.calendly.com/scheduled_events/${uuid.split("").reverse().join("")}/cancellation`,
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjkzOTczMzMwLCJqdGkiOiI2YjY4NjkxMC01NTJlLTQ2YjItOWViMC00ZDQ1MThhMmRhNjEiLCJ1c2VyX3V1aWQiOiI2MmQ2YjEyOS1mNTNkLTQzNjctYjA3YS0wZDg4ZDA0ODI3NGQifQ.HmptWNKpuoh3Hp0cSCNr2RS-4UEFijrhw4Yy9BZU1d2YkM8b8P_CX8UgonklwT1q-d9RS0Aq-MP4FkKZfzRk_Q'
+          Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjk3MzI5MDgyLCJqdGkiOiIwN2FiM2MxNy1lMTIyLTQyZTktYmI0MC0yY2YwNTk0ZWMxNTQiLCJ1c2VyX3V1aWQiOiI3NDczMTRjMC0xNjA0LTRkNmUtYWExMS1kYjViNzVhNDIzOWMifQ.mqYVbS-Zz7K4SqPmifx_E0a0UWgVDj12rtbtW0YLbazIIj6foAfpb81yQBDa_uuYhjjDkH7PEdKK8lP4Uv5llw'
         },
         data: {reason: 'string'}
       };
@@ -222,7 +222,7 @@ router.post("/usercancel",async(req,res)=>{
         url: `https://api.calendly.com/scheduled_events/${uuid.split("").reverse().join("")}/cancellation`,
         headers: {
           'Content-Type': 'application/json',
-          Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjkzOTczMzMwLCJqdGkiOiI2YjY4NjkxMC01NTJlLTQ2YjItOWViMC00ZDQ1MThhMmRhNjEiLCJ1c2VyX3V1aWQiOiI2MmQ2YjEyOS1mNTNkLTQzNjctYjA3YS0wZDg4ZDA0ODI3NGQifQ.HmptWNKpuoh3Hp0cSCNr2RS-4UEFijrhw4Yy9BZU1d2YkM8b8P_CX8UgonklwT1q-d9RS0Aq-MP4FkKZfzRk_Q'
+          Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjk3MzI5MDgyLCJqdGkiOiIwN2FiM2MxNy1lMTIyLTQyZTktYmI0MC0yY2YwNTk0ZWMxNTQiLCJ1c2VyX3V1aWQiOiI3NDczMTRjMC0xNjA0LTRkNmUtYWExMS1kYjViNzVhNDIzOWMifQ.mqYVbS-Zz7K4SqPmifx_E0a0UWgVDj12rtbtW0YLbazIIj6foAfpb81yQBDa_uuYhjjDkH7PEdKK8lP4Uv5llw'
         },
         data: {reason: 'string'}
       };
@@ -272,6 +272,38 @@ router.post("/createreview",async(req,res)=>{
 
     await event.updateOne({_id:req.body.eventId},{reviewed:true});
     new review(req.body).save().then(result=>res.send(result)).catch(err=>res.send(err))
+});
+router.post("/checkemail",async(req,res)=>{
+    
+  
+    const mailOptions = {
+        from:process.env.app_user,
+        to: `${req.body.email}`,
+        subject: 'OTP to verify',
+       
+        html: ` <div style=" width: 85%;margin: 20px auto;">
+       
+         <p style="font-size:18px;text-align: center;">Use the following OTP to verify your Satori Account: </p>
+         <p style="font-size:28px;text-align: center; font-weight: 900;">${req.body.otp} </p>
+     <p style="font-size:18px;text-align: center;margin-top: 20px;">If you didn't request this, please ignore it or let us know</p>
+    
+      </div>`,
+    
+      };
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.log('Error sending email: ' + error);
+          res.status(400).send("Something wrong happened!Try Again")
+       
+        } else {
+          console.log('Email sent: ' + info.response);
+          res.send("Email Sent")
+        
+        }
+      });
+
+
+
 });
 
 router.post('/pay', async (req, res) => {

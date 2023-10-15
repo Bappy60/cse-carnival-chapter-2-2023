@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 const router=express();
 const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
+const blogs=require("../models/blog")
 const upload=require("../uploadsystem/uplod");
 const careprovider=require("../models/careprovider");
 const carepro=require("../models/careprovider");

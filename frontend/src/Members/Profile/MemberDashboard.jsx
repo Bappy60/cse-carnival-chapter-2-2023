@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Drawer, Menu } from "@mui/material";
+import { Drawer, Menu, MenuItem } from "@mui/material";
 import axios from "axios";
 import Cookies from "js-cookie";
 
@@ -13,6 +13,7 @@ import MemberDashboardFirstPage from "./MemberDashboardFirstPage";
 import LogOutModal from "../../Common/LogOutModal";
 import AppointmentDetails from "../AppointmentBooking/AppointmentDetails";
 import UpcomingAppointments from "../../CareProvider/Dashboard/UpcomingAppointments";
+import { Box } from "@mui/material";
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const height = window.innerHeight;
 function MemberDashboard() {

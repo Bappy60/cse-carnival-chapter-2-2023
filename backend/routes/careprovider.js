@@ -35,10 +35,10 @@ careProvider.findOne({email}).then(result=>{
           
 var options = {
     method: 'POST',
-    url: 'https://api.calendly.com/organizations/94f0e49d-92ac-4f34-90a4-0ebb3cee18cd/invitations',
+    url: 'https://api.calendly.com/organizations/8defa096-6b66-484d-a882-ad121f023590/invitations',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjkzOTczMzMwLCJqdGkiOiI2YjY4NjkxMC01NTJlLTQ2YjItOWViMC00ZDQ1MThhMmRhNjEiLCJ1c2VyX3V1aWQiOiI2MmQ2YjEyOS1mNTNkLTQzNjctYjA3YS0wZDg4ZDA0ODI3NGQifQ.HmptWNKpuoh3Hp0cSCNr2RS-4UEFijrhw4Yy9BZU1d2YkM8b8P_CX8UgonklwT1q-d9RS0Aq-MP4FkKZfzRk_Q'
+      Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjk3MzI5MDgyLCJqdGkiOiIwN2FiM2MxNy1lMTIyLTQyZTktYmI0MC0yY2YwNTk0ZWMxNTQiLCJ1c2VyX3V1aWQiOiI3NDczMTRjMC0xNjA0LTRkNmUtYWExMS1kYjViNzVhNDIzOWMifQ.mqYVbS-Zz7K4SqPmifx_E0a0UWgVDj12rtbtW0YLbazIIj6foAfpb81yQBDa_uuYhjjDkH7PEdKK8lP4Uv5llw'
     },
     data: {email: email}
   };
@@ -81,12 +81,12 @@ var options = {
   url: 'https://api.calendly.com/event_types',
   params: {
     active: 'true',
-    organization: 'https://api.calendly.com/organizations/94f0e49d-92ac-4f34-90a4-0ebb3cee18cd',
+    organization: 'https://api.calendly.com/organizations/8defa096-6b66-484d-a882-ad121f023590',
     count: '100'
   },
   headers: {
     'Content-Type': 'application/json',
-    Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjkzOTczMzMwLCJqdGkiOiI2YjY4NjkxMC01NTJlLTQ2YjItOWViMC00ZDQ1MThhMmRhNjEiLCJ1c2VyX3V1aWQiOiI2MmQ2YjEyOS1mNTNkLTQzNjctYjA3YS0wZDg4ZDA0ODI3NGQifQ.HmptWNKpuoh3Hp0cSCNr2RS-4UEFijrhw4Yy9BZU1d2YkM8b8P_CX8UgonklwT1q-d9RS0Aq-MP4FkKZfzRk_Q'
+    Authorization: 'Bearer eyJraWQiOiIxY2UxZTEzNjE3ZGNmNzY2YjNjZWJjY2Y4ZGM1YmFmYThhNjVlNjg0MDIzZjdjMzJiZTgzNDliMjM4MDEzNWI0IiwidHlwIjoiUEFUIiwiYWxnIjoiRVMyNTYifQ.eyJpc3MiOiJodHRwczovL2F1dGguY2FsZW5kbHkuY29tIiwiaWF0IjoxNjk3MzI5MDgyLCJqdGkiOiIwN2FiM2MxNy1lMTIyLTQyZTktYmI0MC0yY2YwNTk0ZWMxNTQiLCJ1c2VyX3V1aWQiOiI3NDczMTRjMC0xNjA0LTRkNmUtYWExMS1kYjViNzVhNDIzOWMifQ.mqYVbS-Zz7K4SqPmifx_E0a0UWgVDj12rtbtW0YLbazIIj6foAfpb81yQBDa_uuYhjjDkH7PEdKK8lP4Uv5llw'
   }
 };
 
@@ -129,7 +129,6 @@ router.post("/checkemail",async(req,res)=>{
             subject: 'OTP to verify',
            
             html: ` <div style=" width: 85%;margin: 20px auto;">
-            <img src="https://i.ibb.co/p0yYJHF/satori-logo-full.png" alt="satori-logo-full" style="display:block; border:0; width: 200px;margin: 20px auto;" />
              <p style="font-size:18px;text-align: center;">Use the following OTP to verify your Satori Account: </p>
              <p style="font-size:28px;text-align: center; font-weight: 900;">${req.body.otp} </p>
          <p style="font-size:18px;text-align: center;margin-top: 20px;">If you didn't request this, please ignore it or let us know</p>

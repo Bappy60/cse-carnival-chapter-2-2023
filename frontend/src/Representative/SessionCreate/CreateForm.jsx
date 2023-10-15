@@ -23,7 +23,7 @@ export default function CreateSession(){
             <Navbar/>
            {what===""&&<div>
             <Typography variant="h4">Choose what type of group session you want to do</Typography>
-           <RadioPositionEnd setWhat={setWhat}/>
+           <RadioPositionEnd setWhat={setWhat} what={what}/>
            </div>}
            {what!==""&&!corporatePayment&&
            <div style={{width:"45%",margin:"30px auto"}}>

@@ -20,7 +20,7 @@ function UserDashboardSideBar({ page, setPage, type }) {
       },
       {
         image: <img src={page === 1 ? chat : chat} style={{ width: "30px" }} />,
-        title: "Chat",
+        title: "Articles",
       },
       {
         image: <img src={page === 2 ? past : past} style={{ width: "30px" }} />,
@@ -35,8 +35,7 @@ function UserDashboardSideBar({ page, setPage, type }) {
           src={logo}
           onClick={(e) => setPage(0)}
           style={{
-            width: "127px",
-            height: "27px",
+            width: "145px",
             cursor: "pointer",
             marginTop: "20px",
             marginBottom: "40px",
@@ -46,6 +45,64 @@ function UserDashboardSideBar({ page, setPage, type }) {
         {buttons.length > 0 && (
           <div>
             {buttons.map((e, index) => {
+                if(index===1)
+                {
+                    return (type==="care"?
+                    <NavLink to="/createblog">
+                    <div
+                  key={e}
+                  style={{
+                    cursor: "pointer",
+                    display: "flex",
+                    gap: "10px",
+                    alignItems: "center",
+                    backgroundColor: page === index ? "#62C227" : "white",
+                    padding: "5px 10px",
+                    borderRadius: "10px",
+                    color: page === index ? "white" : "black",
+                  }}
+                  onClick={(e) => setPage(index)}
+                >
+                  {e.image}
+                  <p
+                    style={{
+                      fontSize: "16px",
+                      fontWeight: 600,
+                      color: page === index ? "white" : "black",
+                    }}
+                  >
+                    {e.title}
+                  </p>
+                </div>
+                </NavLink>:  <NavLink to="/allblogs">  <div
+                  key={e}
+                  style={{
+                    cursor: "pointer",
+                    display: "flex",
+                    gap: "10px",
+                    alignItems: "center",
+                    backgroundColor: page === index ? "#62C227" : "white",
+                    padding: "5px 10px",
+                    borderRadius: "10px",
+                    color: page === index ? "white" : "black",
+                  }}
+                  onClick={(e) => setPage(index)}
+                >
+                  {e.image}
+                  <p
+                    style={{
+                      fontSize: "16px",
+                      fontWeight: 600,
+                      color: page === index ? "white" : "black",
+                    }}
+                  >
+                    {e.title}
+                  </p>
+                </div>
+                </NavLink>
+                    )
+                }
+                else
               return (
                 <div
                   key={e}

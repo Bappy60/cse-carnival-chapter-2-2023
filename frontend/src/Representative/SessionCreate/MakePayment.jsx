@@ -7,8 +7,8 @@ import {Navigate} from "react-router-dom";
 import {TextField} from '@mui/material'; 
 // stripe
 import {useStripe, useElements,CardNumberElement} from '@stripe/react-stripe-js';
-import { country_list } from "../../Administrator/Payment/countrynames";
-import CardInput from "../../Administrator/Payment/CardInput";
+import { country_list } from "../../Members/Profile/countrynames";
+import CardInput from "../../Members/Profile/CardInput";
 export default function MakePayment({data}){
 
     const [name, setName] = useState('');
