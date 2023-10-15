@@ -8,16 +8,17 @@ const superadmin=require("../models/superadmin");
 const upload=require("../uploadsystem/uplod");
 const careProvider = require("../models/careprovider");
 const member = require("../models/normal_user");
+const event = require("../models/events");
+
 const transporter = nodemailer.createTransport({
-    service:"smtp",
-    host: 'mail.talkwithsatori.com',
-    port: 465,
-    secure:"false",
-    auth: {
-        user: process.env.app_user,
-        pass:  process.env.app_pass,
-    },
-   
+  service:"gmail",
+  port: 465,
+  secure:false,
+  auth: {
+      user: process.env.app_user,
+      pass:  process.env.app_pass,
+  },
+ 
 });
   router.post("/createcareprovider",async(req,res)=>{
 

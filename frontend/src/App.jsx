@@ -19,6 +19,7 @@ import CareOUtlet from './Outlets/CareOutlet'
 import RateUSer from './Members/AppointmentBooking/RateUser'
 import MemberLogin from './Members/Registration/MemberLogin'
 import Questions from './Members/Questions'
+import AllBlogs from './Common/AllBlog'
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
   <Route path="/cp/register" element={<CareProviderRegister />}></Route>
   <Route path="/member/*" element={<MemberOUtlet />}>
   <Route path="questions" element={<Questions />}></Route>
+  <Route path="/allblogs" element={<AllBlogs />}></Route>
 
   <Route path="showcareproviders" element={<AllCareProviders />}></Route>
   <Route path="review/:id" element={<RateUSer />}></Route>

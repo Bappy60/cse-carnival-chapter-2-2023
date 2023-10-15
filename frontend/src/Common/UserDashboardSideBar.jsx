@@ -5,6 +5,7 @@ import chat from "../assets/images/chat.png";
 import { Box } from '@mui/material';
 import whitedash from "../assets/images/whitedash.png";
 import past from "../assets/images/past.png";
+import { NavLink } from 'react-router-dom';
 
 function UserDashboardSideBar({page,setPage,type})
 {
@@ -17,7 +18,7 @@ const height=  window.innerHeight
         },
         {
             image:<img src={page===1?chat:chat} style={{width:"30px"}}/>,
-            title:"Chat"
+            title:"Articles"
         },
         {
             image:<img src={page===2?past:past} style={{width:"30px"}}/>,
@@ -33,7 +34,16 @@ const height=  window.innerHeight
            
           {buttons.length>0&&   <div>
                  {buttons.map((e,index)=>{
-                  
+                    if(index===1)
+                    {
+                        return (
+                            <NavLink key={e} to="/allblogs"><div  style={{cursor:"pointer",display:"flex",gap:"10px",alignItems:'center',backgroundColor:page===index?"#62C227":"white",padding:"5px 10px",borderRadius:"10px",color:page===index?"white":"black"}} onClick={e=>setPage(index)}>
+                            {e.image}
+                              <p style={{fontSize:"16px",fontWeight:600,color:page===index?"white":"black"}}>{e.title}</p>
+                          </div></NavLink>
+                        )
+                    }
+                    else
                      return(
                          <div key={e} style={{cursor:"pointer",display:"flex",gap:"10px",alignItems:'center',backgroundColor:page===index?"#62C227":"white",padding:"5px 10px",borderRadius:"10px",color:page===index?"white":"black"}} onClick={e=>setPage(index)}>
                            {e.image}
