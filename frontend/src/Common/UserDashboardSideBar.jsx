@@ -37,7 +37,7 @@ const height=  window.innerHeight
                     if(index===1)
                     {
                         return (
-                            <NavLink key={e} to="/allblogs"><div  style={{cursor:"pointer",display:"flex",gap:"10px",alignItems:'center',backgroundColor:page===index?"#62C227":"white",padding:"5px 10px",borderRadius:"10px",color:page===index?"white":"black"}} onClick={e=>setPage(index)}>
+                            <NavLink key={e} to="/member/allblogs"><div  style={{cursor:"pointer",display:"flex",gap:"10px",alignItems:'center',backgroundColor:page===index?"#62C227":"white",padding:"5px 10px",borderRadius:"10px",color:page===index?"white":"black"}} onClick={e=>setPage(index)}>
                             {e.image}
                               <p style={{fontSize:"16px",fontWeight:600,color:page===index?"white":"black"}}>{e.title}</p>
                           </div></NavLink>
