@@ -32,9 +32,9 @@ function App() {
 
         <Route path="/" element={<Redirection />}></Route>
 
-  <Route path="/cp/register" element={<CareProviderRegister />}></Route>
-  <Route path="/member/*" element={<MemberOUtlet />}>
-  <Route path="questions" element={<Questions />}></Route>
+        <Route path="/cp/register" element={<CareProviderRegister />}></Route>
+        <Route path="/member/*" element={<MemberOUtlet />}>
+          <Route path="questions" element={<Questions />}></Route>
 
           <Route
             path="showcareproviders"
