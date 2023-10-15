@@ -5,6 +5,7 @@ import chat from "../assets/images/chat.png";
 import { Box } from "@mui/material";
 import whitedash from "../assets/images/whitedash.png";
 import past from "../assets/images/past.png";
+import { NavLink } from 'react-router-dom';
 
 function UserDashboardSideBar({ page, setPage, type }) {
   const height = window.innerHeight;
